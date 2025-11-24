@@ -1,0 +1,144 @@
+/* Modern card-style Todo App styles */
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --danger: #ef4444;
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+}
+
+.container {
+  max-width: 640px;
+  margin: 48px auto;
+  padding: 24px;
+}
+
+.title {
+  margin: 0 0 16px 0;
+  font-size: 24px;
+  color: #0f172a;
+}
+
+.add-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent), #1e40af);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
+}
+
+.btn-plain {
+  background: transparent;
+  color: var(--muted);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--card);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(15, 23, 42, 0.03);
+}
+
+.todo-text {
+  flex: 1;
+  color: #0f172a;
+  font-size: 16px;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.todo-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-small {
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.btn-edit {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.btn-delete {
+  background: var(--danger);
+  color: #fff;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+/* Inline editor styles */
+.todo-editor-input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+@media (max-width: 520px) {
+  .container {
+    margin: 24px 16px;
+    padding: 16px;
+  }
+  .title {
+    font-size: 20px;
+  }
+}
