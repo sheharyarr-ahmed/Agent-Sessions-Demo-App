@@ -1,3 +1,4 @@
+// the api
 const API = "http://localhost:5000/todos";
 
 async function fetchTodos() {
