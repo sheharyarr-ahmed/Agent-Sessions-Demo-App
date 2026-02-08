@@ -1,20 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Todo App</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Orbit Todo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="title">Todo App</h1>
-        <div class="add-row">
-            <input id="todoInput" class="todo-input" placeholder="Add todo" />
-            <button class="btn btn-primary" onclick="addTodo()">Add</button>
-        </div>
+    <div class="page">
+        <div class="glow glow-a"></div>
+        <div class="glow glow-b"></div>
+        <main class="container">
+            <header class="hero">
+                <div>
+                    <p class="eyebrow">Focus Mode</p>
+                    <h1 class="title">Orbit Todo</h1>
+                    <p class="subtitle">Plan the day, keep the momentum, and close the loop.</p>
+                </div>
+                <div class="stats-card">
+                    <div class="stat">
+                        <span class="stat-label">Total</span>
+                        <strong id="statTotal">0</strong>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Active</span>
+                        <strong id="statActive">0</strong>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Done</span>
+                        <strong id="statCompleted">0</strong>
+                    </div>
+                </div>
+            </header>
 
-        <ul id="todoList" class="todo-list"></ul>
+            <section class="composer">
+                <label class="composer-label" for="todoInput">Create a task</label>
+                <div class="composer-row">
+                    <input id="todoInput" class="todo-input" placeholder="What needs your attention today?" />
+                    <button id="addButton" class="btn btn-primary">Add task</button>
+                </div>
+                <div class="composer-meta">
+                    <span id="statusText" class="status muted">Ready.</span>
+                    <button id="clearCompleted" class="btn btn-ghost">Clear completed</button>
+                </div>
+            </section>
+
+            <section class="board">
+                <div class="board-header">
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="active">Active</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+
+                <ul id="todoList" class="todo-list"></ul>
+
+                <div id="emptyState" class="empty-state hidden">
+                    <p class="empty-title">All clear.</p>
+                    <p class="empty-sub">Add a new task to keep the day moving.</p>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <p>Tip: Press Enter to add. Press Esc to cancel edits.</p>
+            </footer>
+        </main>
     </div>
 
     <script src="app.js"></script>

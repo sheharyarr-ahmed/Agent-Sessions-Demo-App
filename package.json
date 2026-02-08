@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "node backend/server.js",
+    "client": "python3 -m http.server 5500 --directory frontend",
+    "dev": "npm run server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

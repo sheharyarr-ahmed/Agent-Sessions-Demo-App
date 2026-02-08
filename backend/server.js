@@ -4,7 +4,23 @@ const fs = require("fs").promises;
 const path = require("path");
 
 const app = express();
-app.use(cors());
+const allowedOrigins = new Set([
+  "http://localhost:5500",
+  "http://localhost:5501",
+  "http://127.0.0.1:5500",
+  "http://127.0.0.1:5501",
+]);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.has(origin)) return callback(null, true);
+      return callback(new Error("CORS blocked for origin: " + origin));
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 app.use(express.json());
 
 const FILE = path.join(__dirname, "todos.json");
